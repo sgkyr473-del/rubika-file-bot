@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: rubika-file-bot
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: RUBIKA_TOKEN
+        sync: false
+      - key: ADMIN_ID
+        sync: false
+      - key: BOT_USERNAME
+        sync: false
+      - key: CHANNELS
+        sync: false
